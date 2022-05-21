@@ -6,12 +6,11 @@ on:
       - release
 
 jobs:
-  develop2main:
+  releaseToMain:
     runs-on: ubuntu-latest
     env:
       GIT_PR_RELEASE_BRANCH_PRODUCTION: main
       GIT_PR_RELEASE_BRANCH_STAGING: release
-      GIT_PR_RELEASE_TEMPLATE: .github/PULL_REQUEST_TO_MASTER_TEMPLATE.md
     steps:
       - uses: actions/checkout@v1
       - name: Set up Ruby 3.1
@@ -21,7 +20,7 @@ jobs:
       - name: Execute git-pr-release
         env:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIT_PR_RELEASE_TEMPLATE: '.github/pr-release-template.erb'
+          GIT_PR_RELEASE_TEMPLATE: .github/PULL_REQUEST_TO_MASTER_TEMPLATE.md
         run: |
           gem install git-pr-release -v "0.6.0"
           git remote set-url origin "https://${GITHUB_ACTOR}:${GIT_PR_RELEASE_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"

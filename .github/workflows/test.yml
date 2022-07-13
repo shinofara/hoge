@@ -1,0 +1,16 @@
+name: create pr from release to master
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  releaseToMain:
+    runs-on: ubuntu-latest
+    env:
+      GIT_PR_RELEASE_BRANCH_PRODUCTION: main
+      GIT_PR_RELEASE_BRANCH_STAGING: release
+    steps:
+      - uses: actions/checkout@v1    
+      - run: ${{ github.event.pull_request.head.sha }}

@@ -11,5 +11,7 @@ jobs:
     env:
       GIT_PR_RELEASE_BRANCH_PRODUCTION: main
     steps:
-      - uses: actions/checkout@v1    
-      - run: echo ${{ github.event.pull_request.head.sha }}
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: git log

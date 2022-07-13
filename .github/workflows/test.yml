@@ -12,6 +12,8 @@ jobs:
       GIT_PR_RELEASE_BRANCH_PRODUCTION: main
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - run: git log
+      - name: get the sha
+        run: |
+          echo "$GITHUB_CONTEXT"| jq '.event.commits[].id' | tail -2 | head -1 |sed 's/\"//g'
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}

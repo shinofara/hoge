@@ -8,3 +8,8 @@ jobs:
   first:
     name: pretend the First workflow
     uses: ./.github/workflows/reuse_workflow_run_2.yml
+
+  second:
+    name: pretend the Second workflow
+    needs: first
+    uses: ./.github/workflows/reuse_workflow_run_3.yml

@@ -1,0 +1,8 @@
+name: workflow_run_1
+on: ['push']
+      
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'success'

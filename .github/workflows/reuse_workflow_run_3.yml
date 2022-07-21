@@ -25,3 +25,8 @@ jobs:
         run: echo "::set-output name=firstword::hello"
       - id: step2
         run: echo "::set-output name=secondword::world"
+
+
+  first:
+    name: pretend the First workflow
+    uses: ./.github/workflows/reuse_workflow_run_2.yml

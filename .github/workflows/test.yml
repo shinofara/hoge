@@ -1,0 +1,19 @@
+name: create pr from release to master
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  releaseToMain:
+    runs-on: ubuntu-latest
+    env:
+      GIT_PR_RELEASE_BRANCH_PRODUCTION: main
+    steps:
+      - uses: actions/checkout@v3
+      - name: get the sha
+        run: |
+          echo "$GITHUB_CONTEXT"| jq '.event.commits[].id' | tail -2 | head -1 |sed 's/\"//g'
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}

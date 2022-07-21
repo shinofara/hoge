@@ -1,6 +1,8 @@
 name: workflow_run_1
-on: ['push']
-      
+on:
+  pull_request:
+    branches:
+      - main
 jobs:
   start:
     runs-on: ubuntu-latest

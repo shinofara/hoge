@@ -8,4 +8,4 @@ on:
 jobs:
   first:
     name: pretend the First workflow
-    uses: .github/workflows/reuse_workflow_run_2.yml
+    uses: .github/workflows/reuse_workflow_run_2.yml@main

@@ -1,5 +1,4 @@
 name: create pr from release to master
-
 on:
   push:
     branches:

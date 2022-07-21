@@ -2,7 +2,8 @@ name: workflow_run_5
 on:
   workflow_run:
     workflows:
-      - workflow_run_4
+      - workflow_run_3
+      - workflow_run_4      
     types:
       - completed
       

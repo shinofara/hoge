@@ -1,5 +1,4 @@
 name: create pr from release to master
-
 on:
   push:
     branches:
@@ -22,6 +21,6 @@ jobs:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_PR_RELEASE_TEMPLATE: .github/PULL_REQUEST_TO_MASTER_TEMPLATE.md
         run: |
-          gem install git-pr-release -v "0.6.0"
+          gem install git-pr-release -v "2.1.0"
           git remote set-url origin "https://${GITHUB_ACTOR}:${GIT_PR_RELEASE_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git-pr-release || echo "Done."

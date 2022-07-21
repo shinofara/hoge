@@ -1,6 +1,9 @@
+name: reuse_workflow_run_1
+
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   first:

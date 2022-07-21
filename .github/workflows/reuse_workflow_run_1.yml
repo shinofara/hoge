@@ -4,8 +4,7 @@ on:
   pull_request:
     branches:
       - main
-
 jobs:
   first:
     name: pretend the First workflow
-    uses: ./.github/workflows/reuse_workflow_run_2.yml@main
+    uses: ./.github/workflows/reuse_workflow_run_2.yml
